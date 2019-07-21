@@ -1,0 +1,49 @@
+@import '../../constants.scss';
+
+.top-bar-container {
+    width: 100%;
+    height: $top-bar-height;
+    background-color: white;
+    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.03), 0 0px 10px rgba(0, 0, 0, 0.02);
+    display: flex;
+    justify-content: space-between;
+    color: #286ea7;
+}
+
+.top-bar-container span.top-bar-title {
+    align-self: center;
+    font-weight: 600;
+    padding: 16px;
+    font-size: 1.3em
+}
+
+.top-bar-user-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 240px;
+    padding: 5px;
+}
+
+.top-bar-user-container-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar-user-container-details span {
+    text-transform: uppercase;
+}
+
+.top-bar-user-container-logo {
+    padding: 16px;
+}
+
+.top-bar-user-container-caret {
+    padding: 16px;
+    align-self: flex-end;
+}
+
+.top-bar-user-container:hover {
+    cursor: pointer;
+    background-color: darken($color: #fff, $amount: 3%)
+}

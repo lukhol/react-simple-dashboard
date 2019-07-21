@@ -3,15 +3,14 @@
 .container {
     display: flex;
     flex-direction: row;
-    min-height: calc(100% - 50px);
+    min-height: calc(100% - #{$top-bar-height});
     position: absolute;
 }
-  
   
 .content {
     width: calc(100vw - #{$menu-width});
     height: 100%;
-    max-height: calc(100vh - 50px);
+    max-height: calc(100vh - #{$top-bar-height});
     left: $menu-width;
     position: absolute;
     overflow-x: hidden;
@@ -38,24 +37,10 @@
     width: 100%;
 }
 
-.user-bar-container {
-    width: 100%;
-    height: 50px;
-    background-color: white;
-    box-shadow: 0 0px 20px rgba(0, 0, 0, 0.03), 0 0px 10px rgba(0, 0, 0, 0.02);
-    display: flex;
-}
-
 .p-l {
     padding: 16px;
 }
 
-.user-bar-container span {
-    align-self: center;
-    font-weight: 600;
-    padding: 16px;
-    font-size: 1.3em
-}
 
 .qc-button {
     padding-top: 8px;

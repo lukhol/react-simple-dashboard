@@ -1,6 +1,7 @@
 import React from 'react';
 import './LoginPage.scss';
 
+import { ToastContainer, toast } from 'react-toastify';
 import { withRouter } from "react-router-dom";
 
 export interface Props {
@@ -8,6 +9,10 @@ export interface Props {
 }
 
 export class LoginPage extends React.Component<Props> {
+
+    componentDidMount() {
+        toast('Logged out succesfully.', {containerId: 'B', type: toast.TYPE.SUCCESS, className: 'rotateY animated'});
+    }
 
     onInputBlur = (event: React.FocusEvent<HTMLInputElement>) => {
         console.log(event.target.value);
@@ -20,7 +25,6 @@ export class LoginPage extends React.Component<Props> {
 
     onLoginClicked = () => {
         localStorage.setItem('bearer-token', 'some-token');
-        console.log(this.props.history);
         this.props.history.go('/');
     };
 
@@ -52,11 +56,12 @@ export class LoginPage extends React.Component<Props> {
 
                     <div className="bottom-text">
                         Don't have account?
-                        <a href="#">
+                        <a href="#" onClick={() => toast('dsadsa', {containerId: 'A'})}>
                             Sign up
                         </a>
                     </div>
                 </form>
+                <ToastContainer enableMultiContainer containerId={'B'} position={toast.POSITION.TOP_RIGHT} />
             </div>
         )
     }

@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCog, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import Dropdown, { DropdownItem} from '../../components/Dropdown';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { withRouter } from 'react-router-dom';
 
 const TopBar = ({history} : {history: any}) => {
@@ -13,6 +16,7 @@ const TopBar = ({history} : {history: any}) => {
         <hr /> as any,
         <DropdownItem title="Logout" onClick={(e) => {
             localStorage.removeItem('bearer-token')
+            setTimeout(() => {toast('Logged out succesfully.', {containerId: 'B', type: toast.TYPE.INFO, className: 'rotateY animated'});}, 2000);
             history.go("/");
         }}/> as any
     ];

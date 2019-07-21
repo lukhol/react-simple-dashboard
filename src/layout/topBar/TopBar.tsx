@@ -4,11 +4,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCog, faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import Dropdown, { DropdownItem} from '../../components/Dropdown';
 
-const TopBar = () => {
+import { withRouter } from 'react-router-dom';
+
+const TopBar = ({history} : {history: any}) => {
     const items: DropdownItem[] = [
         <DropdownItem title="Jeden" onClick={(e) => console.log(e)} /> as any,
         <DropdownItem title="Dwa" onClick={(e) => console.log(e)}/> as any,
-        <DropdownItem title="Trzy" onClick={(e) => console.log(e)}/> as any
+        <hr /> as any,
+        <DropdownItem title="Logout" onClick={(e) => {
+            localStorage.removeItem('bearer-token')
+            history.go("/");
+        }}/> as any
     ];
 
     return (
@@ -34,4 +40,4 @@ const TopBar = () => {
     )
 }
 
-export default TopBar;
+export default withRouter(({ history }) => (<TopBar history={history} />));

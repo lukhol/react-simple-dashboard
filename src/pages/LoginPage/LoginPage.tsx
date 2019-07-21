@@ -15,7 +15,6 @@ export class LoginPage extends React.Component<Props> {
     }
 
     onInputBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-        console.log(event.target.value);
         if(event.target.value === "") {
             if(event.target.classList.contains('focus')) {
                 event.target.classList.remove('focus');
@@ -25,7 +24,7 @@ export class LoginPage extends React.Component<Props> {
 
     onLoginClicked = () => {
         localStorage.setItem('bearer-token', 'some-token');
-        this.props.history.go('/');
+        this.props.history.replace('/');
     };
 
     render() {

@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import "./App.scss";
+import { Menu, Footer, TopBar } from './layout';
+import { HomePage, MapPage } from './pages';
+
+const About = () => <div className="p-l">About</div>
+const Users = () => <div className="p-l">Users</div>
+const Test = () => <div className="p-l">Test</div>
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  	return (
+        <Router>
+            <div>
+                <TopBar />
+                <div className="container">
+                    <Menu />
+                    <div className="content">
+                        <div className="content-top">
+                            <Route path="/" exact component={HomePage} />
+                            <Route path="/about/" exact component={About} />
+                            <Route path="/users" exact component={Users} />
+                            <Route path="/map/" exact component={MapPage} />
+                            <Route path="/test1/" exact component={Test} />
+                            <Route path="/test2/" exact component={Test}/>
+                        </div>
+                        <Footer />
+                    </div>
+                </div>
+            </div>
+        </Router>
+  	);
+};
 
 export default App;

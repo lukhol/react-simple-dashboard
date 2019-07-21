@@ -1,0 +1,135 @@
+@import '../../constants.scss';
+
+.menu {
+    border-right: 1px solid rgb(224, 97, 97);
+    width: $menu-width;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    transition: left 0.5s;
+    background-color: $menu-background-color;
+    overflow: auto;
+}
+
+.menu a {
+    text-decoration: none;
+}
+
+.menu li:hover {
+    background-color: lighten($menu-background-color, 5%);
+}
+
+.menu li span {
+    padding-left: 16px;
+}
+
+.menu ul {
+    margin: 0;
+}
+
+.menu li {
+    list-style: none;
+    padding: 8px;
+    font-size: 1.05em;
+    padding: 16px;
+    text-transform: uppercase;
+    color: white;
+}
+
+#menu-checkbox {
+    width: 30px;
+    height: 30px;
+    background-color: #3c46cc;
+    color: white;
+    position: absolute;
+    top: 0px;
+    left: calc(#{$menu-width} - 20px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: 0.5s;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+#menu-checkbox:hover:checked {
+    color: #3c46cc;
+    background-color: #fff;
+}
+
+#menu-checkbox:focus {
+    outline: none;
+}
+
+#menu-checkbox:checked::before {
+    content: '\003e';
+    font-weight: bold;
+    font-size: 1.2em;
+    padding-left: 10px;
+}
+
+#menu-checkbox::before {
+    font-weight: bold;
+    content: '\003c';
+    font-size: 1.2em;
+}
+
+.menu:hover {
+    left: 0;
+}
+
+#menu-checkbox:checked ~ div.menu {
+    left: -$menu-width;
+}
+
+#menu-checkbox:checked ~ div.content {
+    left: 0;
+    width: 100vw;
+    transition: width 0.5s, left 0.5s;
+    /* transition-delay: 0.5s; */
+}
+
+#menu-checkbox:checked {
+    border: 1px solid rgb(69, 196, 64);
+    left: -20px;
+    transition: left 0.5s;
+}
+
+.menu:hover:after {
+    transform: scale(1.02);
+}
+
+.menu li.menu-complex {
+    display: flex;
+}
+
+.menu li.menu-complex div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.menu li svg {
+    align-self: center;
+}
+
+.menu-complex-items {
+    background-color: darken($menu-background-color, 15%);
+}
+
+.menu .menu-complex-items li:hover {
+    background-color: darken($menu-background-color, 9%);
+}
+
+.menu-complex-items .fa-xs {
+    font-size: 0.2em;
+}
+
+.menu li svg {
+    width: 25px!important;
+}
